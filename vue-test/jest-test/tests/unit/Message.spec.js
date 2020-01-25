@@ -41,6 +41,41 @@ describe("Message.test.js", () => {
     });
 
     describe('Custom events', () => {
+      it('should calls handleClick when click on message', () => {
+        /* 
+        const spy = spyOn(cmp.vm, 'handleClick');
+          using a spy, the original method handleClick will be called. 
+          You might intentionally want that, but ideally, 
+          we want to avoid it and just check that on clicking
+
+       cmp.vm.handleClick = jest.fn(); // mocking the function
+          Here we are totally replacing the handleClick method, 
+          accessible on the vm of the wrapper component returned by the mount function.
+        */
+        const stub = jest.spy();
+        cmp.setMethods({handleClick: stub});
+        cmp.update(); // forces to re-render, applying the changes into template
+
+        const el = cmp.find('.message').trigger('click');
+        expect(cmp.vm.handleClick).toBeCalled();
+      });
+
+      it("should triggers a message-clicked event when a handleClick method is called", () => {
+        const stub = jest.fn();
+        cmp.vm.$on('message-clicked', stub);
+        cmp.vm.handleClick();
+
+        expect(stub).toBeCalledWith('Cat');
+      });
+
+      it("should calls handleMessageClick when @message-click happens", () => {
+        const stub = jest.fn();
+        cmp.setMethods({handleClick: stub});
+        cmp.update();
+
+        const el = cmp.find(Message).vm.$emmit('message-clicked', 'cat');
+        expect(stub).toBeCalledWith('Cat');
+      });
 
     });
 
