@@ -1,6 +1,9 @@
 <template>
     <ul>
-        <Message :message="message" v-for="message in messages"/>
+        <Message 
+          @message-clicked="handleMessageClick"
+          :message="message" 
+          v-for="message in messages"/>
     </ul>
 </template>
 
@@ -12,6 +15,11 @@ export default {
   props: ['messages'],
   components: {
     Message
+  },
+  methods: {
+    handleMessageClick() {
+      console.log(message)
+    }
   }
 }
 </script>
