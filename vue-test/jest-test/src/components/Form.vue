@@ -3,8 +3,8 @@
     <form action="" @submit.prevent="onSubmit(inputValue)">
       <input type="text" v-model="inputValue">
       <span class="reversed">{{ reversedInput }}</span>
-
       <button type="submit"> Send </button>
+      
     </form>
     <br>
     <p v-for="res in results" class="result"> {{ res.title }} </p>
