@@ -1,5 +1,6 @@
+import Vue from 'vue'
 import { mount } from "@vue/test-utils";
-import Message from "../../src/components/Message";
+import Message from "@/components/Message";
 
 const createCmp = propsData => mount(Message, { propsData });
 

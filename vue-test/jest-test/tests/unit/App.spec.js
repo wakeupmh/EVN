@@ -1,4 +1,4 @@
-import App from '../../src/App'
+import App from '@/App'
 import { shallowMount } from '@vue/test-utils'
 
 describe('App.test.js',() => {

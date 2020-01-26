@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <MessageList>
+      <header slot="header">
+        Awesome header
+      </header>
       <Message
         @message-clicked="handleMessageClick"
         :message="message"
@@ -11,12 +14,12 @@
 </template>
 
 <script>
-import MessageList from './components/MessageList'
-import Message from "./components/Message";
+import MessageList from '@/components/MessageList'
+import Message from '@/components/Message';
 
 export default {
   name: "app",
-  data: () => ({ messages: ["Hey John", "Howdy Paco"] }),
+  data: () => ({ messages: ['Hey John', 'Howdy Paco'] }),
   methods: {
     handleMessageClick(message) {
       console.log(message);

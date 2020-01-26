@@ -4,8 +4,25 @@ exports[`App.test.js has the expected html structure 1`] = `
 <div
   id="app"
 >
-  <messagelist-stub
-    messages="Dog,Cat,Fish"
-  />
+  <messagelist-stub>
+    <header>
+      
+      Awesome header
+    
+    </header>
+     
+    <message-stub
+      author="Dylan"
+      message="Dog"
+    />
+    <message-stub
+      author="Dylan"
+      message="Cat"
+    />
+    <message-stub
+      author="Dylan"
+      message="Fish"
+    />
+  </messagelist-stub>
 </div>
 `;

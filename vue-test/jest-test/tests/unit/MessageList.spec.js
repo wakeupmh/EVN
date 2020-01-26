@@ -1,30 +1,52 @@
+import Vue from 'vue'
 import { shallowMount } from '@vue/test-utils'
-import MessageList from '../../src/components/MessageList'
-import Message from '../../src/components/Message'
+import MessageList from '@/components/MessageList'
+import Message from '@/components/Message'
 
 describe('MessageList.test.js', () => {
   let cmp
+
   beforeEach(() => {
     const messageWrapper = {
       render(h) {
-        return h(Message, {
-          props: {
-            message: "hello"
-          }
-        })
+        return h(Message, { props: { message: 'hey yo' } })
       }
     }
+
     cmp = shallowMount(MessageList, {
       slots: {
         default: messageWrapper
       }
-    });
-  });
+    })
+  })
 
-  it("Messages are inserted in a ul.list-messages element", () => {
-    const list = cmp.find(MessageList);
-    expect(list.find(Message).isVueInstance()).toBeTruthy();
-  });
+  it('Messages are inserted in a MessageList component', () => {
+    const list = cmp.find(MessageList)
+    expect(list.find(Message).isVueInstance()).toBe(true)
+  })
+
+  it('Header slot renders a default header text', () => {
+    const header = cmp.find('.list-header')
+    expect(header.text().trim()).toBe('This is a default header')
+  })
+
+  it('Header slot is rendered withing .list-header', () => {
+    const component = shallowMount(MessageList, {
+      slots: {
+        header: '<div>What an awesome header</div>'
+      }
+    })
+
+    const header = component.find('.list-header')
+    expect(header.text().trim()).toBe('What an awesome header')
+  })
+
+  it('Message length is higher than 5', () => {
+    const messages = cmp.findAll(Message)
+    messages.wrappers.forEach(c => {
+      expect(c.vm.message.length).toBeGreaterThan(5)
+    })
+  })
 
   // BEFORE SLOTING THE MESSALIST:
   // beforeEach(() => {
