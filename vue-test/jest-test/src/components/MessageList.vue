@@ -1,9 +1,9 @@
 <template>
     <ul>
-        <Message 
-          @message-clicked="handleMessageClick"
-          :message="message" 
-          v-for="message in messages"/>
+      <Message 
+        @message-clicked="handleMessageClick"
+        :message="message" 
+        v-for="message in messages"/>
     </ul>
 </template>
 
