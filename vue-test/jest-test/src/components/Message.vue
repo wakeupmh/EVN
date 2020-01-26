@@ -2,9 +2,7 @@
   <li 
     style="padding-top: 10px" 
     class="message"
-    @click="handleClick">
-    {{ message }}
-  </li>
+    @click="handleClick">{{ message }}</li>
 </template>
 
 <script>

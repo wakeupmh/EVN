@@ -41,6 +41,11 @@ describe("Message.test.js", () => {
     });
 
     describe('Custom events', () => {
+      
+      beforeEach(() => {
+        cmp = createCmp({ message: 'Cat' })
+      })
+
       it('should calls handleClick when click on message', () => {
         /* 
         const spy = spyOn(cmp.vm, 'handleClick');
@@ -52,7 +57,7 @@ describe("Message.test.js", () => {
           Here we are totally replacing the handleClick method, 
           accessible on the vm of the wrapper component returned by the mount function.
         */
-        const stub = jest.spy();
+        const stub = jest.fn();
         cmp.setMethods({handleClick: stub});
         cmp.update(); // forces to re-render, applying the changes into template
 
@@ -69,12 +74,8 @@ describe("Message.test.js", () => {
       });
 
       it("should calls handleMessageClick when @message-click happens", () => {
-        const stub = jest.fn();
-        cmp.setMethods({handleClick: stub});
-        cmp.update();
-
-        const el = cmp.find(Message).vm.$emmit('message-clicked', 'cat');
-        expect(stub).toBeCalledWith('Cat');
+        const el = cmp.find(Message).vm.$emit('message-clicked', 'Cat');
+        expect(cmp.emitted()['message-clicked'][0]).toEqual(['Cat'])
       });
 
     });
