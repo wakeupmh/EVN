@@ -7,7 +7,7 @@ describe("Form.test.js", () => {
 
   beforeEach(() => {
     cmp = shallowMount(Form);
-    jest.resetModules()
+    jest.resetModules() // it's a good pratice reset all mocks, because this prevent some side effects undesired
     jest.clearAllMocks()
   });
   
