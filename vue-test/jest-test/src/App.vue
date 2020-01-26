@@ -9,7 +9,9 @@ import MessageList from './components/MessageList'
 
 export default {
   name: 'app',
-  data: () => ({ messages: ['Cat', 'Dog', 'Fish'] }),
+  data: () => ({
+    messages:  ['Cat', 'Dog', 'Fish'],
+  }),
   components: {
     MessageList
   }
