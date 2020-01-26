@@ -1,65 +1,87 @@
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import MessageList from '../../src/components/MessageList'
 import Message from '../../src/components/Message'
 
 describe('MessageList.test.js', () => {
   let cmp
-
   beforeEach(() => {
-    cmp = mount(MessageList, {
-      propsData: {
-        messages: ['Cat', 'Dog', 'Fish'],
+    const messageWrapper = {
+      render(h) {
+        return h(Message, {
+          props: {
+            message: "hello"
+          }
+        })
       }
-    })
-  })
+    }
+    cmp = shallowMount(MessageList, {
+      slots: {
+        default: messageWrapper
+      }
+    });
+  });
 
-  it('has received ["Dog", "Cat", "Fish"] as the message property', () => {
-    expect(cmp.props().messages).toEqual(['Cat', 'Dog', 'Fish'])
-  })
+  it("Messages are inserted in a ul.list-messages element", () => {
+    const list = cmp.find(MessageList);
+    expect(list.find(Message).isVueInstance()).toBeTruthy();
+  });
 
-  it('has the expected html structure', () => {
-    expect(cmp.element).toMatchSnapshot()
-  })
+  // BEFORE SLOTING THE MESSALIST:
+  // beforeEach(() => {
+  //   cmp = mount(MessageList, {
+  //     propsData: {
+  //       messages: ['Cat', 'Dog', 'Fish'],
+  //     }
+  //   })
+  // })
 
-  it('is a MessageList component', () => {
-    expect(cmp.is(MessageList)).toBe(true)
-    expect(cmp.is('ul')).toBe(true)
-  })
+  // it('has received ["Dog", "Cat", "Fish"] as the message property', () => {
+  //   expect(cmp.props().messages).toEqual(['Cat', 'Dog', 'Fish'])
+  // })
 
-  it('contains a Message component', () => {
-    expect(cmp.contains(Message)).toBe(true)
-    expect(cmp.contains('.message')).toBe(true)
-  })
+  // it('has the expected html structure', () => {
+  //   expect(cmp.element).toMatchSnapshot()
+  // })
 
-  // Vue instance
-  it('Both MessageList and Message are vue instances', () => {
-    expect(cmp.isVueInstance()).toBe(true)
-    expect(cmp.find(Message).isVueInstance()).toBe(true)
-  })
+  // it('is a MessageList component', () => {
+  //   expect(cmp.is(MessageList)).toBe(true)
+  //   expect(cmp.is('ul')).toBe(true)
+  // })
 
-  it('Message has a "message" property equals to "Cat"', () => {
-    expect(cmp.find(Message).props().message).toBe('Cat')
-  })
+  // it('contains a Message component', () => {
+  //   expect(cmp.contains(Message)).toBe(true)
+  //   expect(cmp.contains('.message')).toBe(true)
+  // })
 
-  // Structure
-  it('Message element exists', () => {
-    expect(cmp.find('.message').exists()).toBe(true)
-  })
+  // // Vue instance
+  // it('Both MessageList and Message are vue instances', () => {
+  //   expect(cmp.isVueInstance()).toBe(true)
+  //   expect(cmp.find(Message).isVueInstance()).toBe(true)
+  // })
 
-  it('Message is not empty', () => {
-    expect(cmp.find(Message).isEmpty()).toBe(false)
-  })
+  // it('Message has a "message" property equals to "Cat"', () => {
+  //   expect(cmp.find(Message).props().message).toBe('Cat')
+  // })
 
-  it('Message has a class attribute set to "message"', () => {
-    expect(cmp.find(Message).attributes().class).toBe('message')
-  })
+  // // Structure
+  // it('Message element exists', () => {
+  //   expect(cmp.find('.message').exists()).toBe(true)
+  // })
 
-  // Style
-  it('Message component has the .message class', () => {
-    expect(cmp.find(Message).classes()).toContain('message')
-  })
+  // it('Message is not empty', () => {
+  //   expect(cmp.find(Message).isEmpty()).toBe(false)
+  // })
 
-  it('Message component has style padding-top: 10', () => {
-    expect(cmp.find(Message).attributes().style).toBe('padding-top: 10px;')
-  })
+  // it('Message has a class attribute set to "message"', () => {
+  //   expect(cmp.find(Message).attributes().class).toBe('message')
+  // })
+
+  // // Style
+  // it('Message component has the .message class', () => {
+  //   expect(cmp.find(Message).classes()).toContain('message')
+  // })
+
+  // it('Message component has style padding-top: 10', () => {
+  //   expect(cmp.find(Message).attributes().style).toBe('padding-top: 10px;')
+  // })
 })
