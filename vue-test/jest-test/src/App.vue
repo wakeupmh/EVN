@@ -1,21 +1,32 @@
 <template>
   <div id="app">
-    <MessageList :messages="messages"/>
+    <MessageList>
+      <Message
+        @message-clicked="handleMessageClick"
+        :message="message"
+        v-for="message in messages"
+        :key="message"/>
+    </MessageList>
   </div>
 </template>
 
 <script>
 import MessageList from './components/MessageList'
+import Message from "./components/Message";
 
 export default {
-  name: 'app',
-  data: () => ({
-    messages:  ['Cat', 'Dog', 'Fish'],
-  }),
+  name: "app",
+  data: () => ({ messages: ["Hey John", "Howdy Paco"] }),
+  methods: {
+    handleMessageClick(message) {
+      console.log(message);
+    }
+  },
   components: {
-    MessageList
+    MessageList,
+    Message
   }
-}
+};
 </script>
 
 <style>

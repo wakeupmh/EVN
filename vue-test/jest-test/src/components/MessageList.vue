@@ -1,25 +1,12 @@
 <template>
-    <ul>
-      <Message 
-        @message-clicked="handleMessageClick"
-        :message="message" 
-        v-for="message in messages"/>
-    </ul>
+  <ul class="list-messages">
+    <slot></slot>
+  </ul>
 </template>
 
 <script>
-import Message from './Message'
 
 export default {
-  name: 'MessageList',
-  props: ['messages'],
-  components: {
-    Message
-  },
-  methods: {
-    handleMessageClick() {
-      console.log(message)
-    }
-  }
-}
+  name: "MessageList"
+};
 </script>
