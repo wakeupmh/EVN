@@ -12,7 +12,6 @@ db.once('open', () => console.log('Connected to database!'));
 server.use(express.json());
 server.use(cors());
 
-const router = require('./characters');
-server.use('/characters', router);
+app.use(`/`, require('./routes'));
 
 server.listen(3000, () => console.log("Server started!"));
