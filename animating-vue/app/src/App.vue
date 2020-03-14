@@ -87,12 +87,15 @@
 }
 
 .input-container input {
-  margin-right:5px;
+  margin-right:8px;
   padding: 5px;
   border-radius: 5px;
   border: 2px solid;
   border-image-source: linear-gradient(to right, #FF5F6D, #FFC371);
   border-image-slice: 1;
+}
+.input-container button { 
+  margin-right: 8px;
 }
 /***** TRANSITIONS ******/
 
@@ -102,7 +105,7 @@
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s ease-out;
+  transition: opacity .5s ease-out;
 }
 
 .fade-leave-to {
@@ -117,7 +120,7 @@
 }
 
 .slide-fade-enter-active, .slide-fade-leave-active {
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 
 .slide-fade-leave-to {
@@ -131,7 +134,12 @@
 }
 
 .slide-up-enter-active {
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
+
+.slide-up-move {
+  transition: transform .5s ease-in;
+}
+
 
 </style>
