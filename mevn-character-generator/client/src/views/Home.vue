@@ -1,26 +1,20 @@
 <template>
     <div id="app">
-        <button v-on:click="toggle='character-viewer'; getCharacters()">View all characters</button>
-        <button v-on:click="toggle='character-creator'">Create a character</button>
-        <CharacterViewer v-show="toggle==='character-viewer'" :characters="characters"/>
-        <CharacterCreator v-show="toggle==='character-creator'" />
+        <CharacterViewer :characters="characters"/>
     </div>
 </template>
 
 <script>
   import CharacterViewer from '@/components/CharacterViewer.vue'
-  import CharacterCreator from '@/components/CharacterCreator.vue'
   import axios from "axios"
 
   export default {
     name: 'App',
     components: {
-      CharacterViewer,
-      CharacterCreator
+      CharacterViewer
     },
     data: function () {
       return {
-        toggle: "character-viewer",
         characters: null
       }
     },
