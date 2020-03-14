@@ -2,7 +2,7 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Modal</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/list">List</router-link>
     </div>
     <transition name="slide-fade" mode="out-in">
       <router-view />
@@ -33,7 +33,7 @@
   align-items: center;
 }
 
-.home button {
+.home button, .list button {
   border:0px;
   padding: 12px;
   background-image: linear-gradient(to right, #FF5F6D, #FFC371);
@@ -64,11 +64,35 @@
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #FFC371;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #FF5F6D;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.list li {
+  list-style-type: none;
+}
+
+.input-container {
+  display: inline-flex;
+}
+
+.input-container input {
+  margin-right:5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 2px solid;
+  border-image-source: linear-gradient(to right, #FF5F6D, #FFC371);
+  border-image-slice: 1;
 }
 /***** TRANSITIONS ******/
 
@@ -99,6 +123,15 @@
 .slide-fade-leave-to {
   transform: translateX(-10px);
   opacity: 0;
+}
+
+.slide-up-enter {
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.slide-up-enter-active {
+  transition: all 0.3s ease;
 }
 
 </style>
