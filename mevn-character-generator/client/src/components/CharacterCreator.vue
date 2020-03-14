@@ -5,26 +5,30 @@
     <input type="text" 
       placeholder="Enter an epic name 😉✨" 
       v-model="name">
+
     <div class="container" >
       <Card v-for="(character, i) in characters" :key="i" 
         :text="character" 
         :image="character.toLowerCase()" 
+        @selected="handleClick"
       />
     </div>
     <br>
     <div class="container">
-     <Button @click="postCharacter" />
+      <button class="card" @click="postCharacter">
+          <div class="sk-chase" v-if="loading">
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+            <div class="sk-chase-dot"></div>
+          </div>
+          <img :src="require(`@/assets/cauldron.svg`)" v-if="!loading">
+          <p v-if="!loading"> Create Character </p>
+          <p v-if="loading"> Creating... </p>
+      </button>
     </div>
-        
-      <label for="character-name">Character Name: </label>
-      <input type="text" id="character-name" v-model="name" placeholder="Enter a name" /> <br /><br />
-      <label for="professions-list">Character Profession: </label>
-      <select id="professions-list" v-model="profession">
-          <option value="Mage">Mage</option>
-          <option value="Thief">Thief</option>
-          <option value="Warrior">Warrior</option>
-      </select><br /><br />
-      
   </div>
 </template>
 
@@ -33,19 +37,19 @@
   import '@/style/index.css';
 
   const Card = () => import('./Card.vue');
-  const Button = () => import('./Button.vue');
   export default {
     name: 'CharacterCreator',
     components: {
-      Card, Button
+      Card
     },
-    data: function () {
+    data() {
       return {
+        loading: false,
         name: null,
         profession: null,
         characters: [
           "Archer",
-          "Crow",
+          "Scarecrow",
           "Necromancer",
           "Witch",
           "Centaur",
@@ -61,16 +65,23 @@
       }
     },
     methods: {
-      postCharacter: () => {
-        axios
-          .post('http://localhost:3000/characters/create', {
-            name: this.name,
-            profession: this.profession
-          });
+      postCharacter() {
+        this.loading = !this.loading;
+        setTimeout(()=> {
+          axios
+            .post('http://localhost:3000/api/characters/create', {
+              name: this.name,
+              profession: this.profession
+            })
+            .then(()=> {
+              this.loading = !this.loading;
+              this.$toasted.show('Character created 🎊🎉', { duration: 900 });
+              this.name = null;
+          })
+        }, 1200);
       },
-      professionSelected: () => {
-        console.log("dsada");
-        // this.profession = selected
+      handleClick(selected) {
+        this.profession = selected
       }
     }
   }
