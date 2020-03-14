@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan+2:700&display=swap');
+
 :root {
     --pale-lavender: #D8D4F2;
     --xanadu: #73937E;
     --desert-sand: #EABDA8;
-    --dark-puce: #493843;
+    --pastel-green: #7DD181;
     --rich-black: #090302;
 }
 body {
@@ -10,9 +12,12 @@ body {
 }
 
 .character-creator h1 {
+    font-size: 40px;
+    font-family: 'Baloo Chettan 2', cursive;
     color: var(--desert-sand);
 }
 .container {
+    font-family: 'Baloo Chettan 2', cursive;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -32,6 +37,7 @@ body {
                 -10px -10px 20px #80a38c;
     color: var(--pale-lavender);
     font-weight: 700;
+    font-size: 1.2em;
 }
 
 .card:hover, .card:active {
@@ -42,4 +48,32 @@ body {
 
 .card img {
     width: 40%;
+    margin-bottom: 0px;
+}
+
+.character-creator button {
+    font-family: 'Baloo Chettan 2', cursive;
+    border: 0px;
+    width: 220px;
+    font-size: 24px;
+    padding-bottom: 10px;
+    color: var(--pastel-green) !important;
+}
+.character-creator button img {
+    width: 40%;
+    margin-bottom: 0px;
+}
+
+input {
+    font-family: 'Baloo Chettan 2', cursive;
+    font-size: 18px;
+    margin-bottom: 1em;
+    padding: .6em .9em;
+    width: 80%;
+    color: var(--xanadu);
+    outline: none;
+    border-radius: 8px;
+    background-color: #e0eaf9;
+    box-shadow: inset 2px 2px 4px rgba(56,53,85,.3), inset -2px -2px 4px hsla(0,0%,100%,.5), inset 0 0 100px rgba(56,53,85,.02);
+    border: 1px solid #e0eaf9;
 }
