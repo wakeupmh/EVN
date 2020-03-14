@@ -2,7 +2,8 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Modal</router-link> |
-      <router-link to="/list">List</router-link>
+      <router-link to="/list">List</router-link> |
+      <router-link to="/drawer">Drawer</router-link> 
     </div>
     <transition name="slide-fade" mode="out-in">
       <router-view />
@@ -33,7 +34,7 @@
   align-items: center;
 }
 
-.home button, .list button {
+button {
   border:0px;
   padding: 12px;
   background-image: linear-gradient(to right, #FF5F6D, #FFC371);
@@ -97,6 +98,15 @@
 .input-container button { 
   margin-right: 8px;
 }
+
+.drawer {
+  background-color: #ddd;
+  padding:20px;
+  width:200px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
 /***** TRANSITIONS ******/
 
 .fade-enter {
