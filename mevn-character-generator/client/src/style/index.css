@@ -1,0 +1,45 @@
+:root {
+    --pale-lavender: #D8D4F2;
+    --xanadu: #73937E;
+    --desert-sand: #EABDA8;
+    --dark-puce: #493843;
+    --rich-black: #090302;
+}
+body {
+    background-color: var(--xanadu);
+}
+
+.character-creator h1 {
+    color: var(--desert-sand);
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;    
+}
+.card {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 14px;
+    margin: 20px;
+    border-radius: 15%;
+    width: 155px;
+    background: var(--xanadu);
+    box-shadow:  10px 10px 20px #668370, 
+                -10px -10px 20px #80a38c;
+    color: var(--pale-lavender);
+    font-weight: 700;
+}
+
+.card:hover, .card:active {
+    border-radius: 15%;
+    box-shadow: inset 10px 10px 20px #668370, 
+                inset -10px -10px 20px #80a38c;
+}
+
+.card img {
+    width: 40%;
+}

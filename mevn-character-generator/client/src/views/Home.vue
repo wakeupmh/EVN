@@ -8,31 +8,31 @@
 </template>
 
 <script>
-    import CharacterViewer from '@/components/CharacterViewer.vue'
-    import CharacterCreator from '@/components/CharacterCreator.vue'
-    import axios from "axios"
+  import CharacterViewer from '@/components/CharacterViewer.vue'
+  import CharacterCreator from '@/components/CharacterCreator.vue'
+  import axios from "axios"
 
-    export default {
-        name: 'App',
-        components: {
-            CharacterViewer,
-            CharacterCreator
-        },
-        data: function () {
-            return {
-                toggle: "character-viewer",
-                characters: null
-            }
-        },
-        methods: {
-            getCharacters: function () {
-                axios
-                    .get('http://localhost:3000/api/characters')
-                    .then(response => (this.characters = response.data))
-            }
-        },
-        mounted: function () {
-            this.getCharacters();
-        }
+  export default {
+    name: 'App',
+    components: {
+      CharacterViewer,
+      CharacterCreator
+    },
+    data: function () {
+      return {
+        toggle: "character-viewer",
+        characters: null
+      }
+    },
+    methods: {
+      getCharacters: function () {
+        axios
+          .get('http://localhost:3000/api/characters')
+          .then(response => (this.characters = response.data))
+      }
+    },  
+    mounted: function () {
+      this.getCharacters();
     }
+  }
 </script>
