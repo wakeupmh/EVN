@@ -40,7 +40,7 @@ body {
     font-size: 1.2em;
 }
 
-.card:hover, .card:active {
+.card:hover, .card:active, .card:focus {
     border-radius: 15%;
     box-shadow: inset 10px 10px 20px #668370, 
                 inset -10px -10px 20px #80a38c;
