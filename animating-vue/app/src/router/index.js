@@ -20,7 +20,19 @@ const routes = [
     path: "/drawer",
     name: "Drawer",
     component: () =>
-      import(/* webpackChunkName: "List" */ "@/views/Drawer.vue")
+      import(/* webpackChunkName: "Drawer" */ "@/views/Drawer.vue")
+  },
+  {
+    path: "/simple",
+    name: "Simple",
+    component: () =>
+      import(/* webpackChunkName: "Simple" */ "@/views/Simple.vue")
+  },
+  {
+    path: "/stagger",
+    name: "Stagger",
+    component: () =>
+      import(/* webpackChunkName: "Stagger" */ "@/views/Stagger.vue")
   }
 ];
 
