@@ -12,7 +12,7 @@
 
 <style>
 body {
-  background-color: #73937e;
+  background-color:#73937E;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -38,11 +38,11 @@ body {
 .slide-fade-enter {
   transform: translateX(10px);
   opacity: 0;
+
 }
 
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.3s ease;
+.slide-fade-enter-active, .slide-fade-leave-active {
+  transition: all .3s ease;
 }
 
 .slide-fade-leave-to {
@@ -56,6 +56,6 @@ body {
 }
 
 .slide-up-enter-active {
-  transition: all 0.4s ease;
+  transition: all .4s ease;
 }
 </style>

@@ -7,11 +7,14 @@
     --pastel-green: #7DD181;
     --rich-black: #090302;
 }
+#nav {
+  font-family: 'Baloo Chettan 2', cursive;
+}
 body {
     background-color: var(--xanadu);
 }
 
-.character-creator h1 {
+h1 {
     font-size: 40px;
     font-family: 'Baloo Chettan 2', cursive;
     color: var(--desert-sand);
@@ -137,3 +140,5 @@ label, .toasted-container {
       transform: scale(1.0); 
     } 
   }
+
+  
