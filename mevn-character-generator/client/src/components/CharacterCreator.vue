@@ -73,6 +73,11 @@ export default {
             this.loading = !this.loading;
             this.$toasted.show("Character created 🎊🎉", { duration: 900 });
             this.name = null;
+          })
+          .catch(() => {
+            this.loading = !this.loading;
+            this.$toasted.error("An error has occurred 😥", { duration: 900 });
+            this.name = null;
           });
       }, 1200);
     },

@@ -27,6 +27,7 @@
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+  overflow-x:none;
 }
 
 .home {
