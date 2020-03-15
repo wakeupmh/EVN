@@ -4,7 +4,9 @@
       <router-link to="/">View</router-link> |
       <router-link to="/create">Create</router-link>
     </div>
-    <router-view />
+    <transition name="slide-fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
