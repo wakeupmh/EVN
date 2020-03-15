@@ -12,7 +12,7 @@
 
 <style>
 body {
-  background-color:#73937E;
+  background-color: #73937e;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -33,5 +33,29 @@ body {
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.slide-fade-enter {
+  transform: translateX(10px);
+  opacity: 0;
+}
+
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.slide-fade-leave-to {
+  transform: translateX(-10px);
+  opacity: 0;
+}
+
+.slide-up-enter {
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.slide-up-enter-active {
+  transition: all 0.4s ease;
 }
 </style>

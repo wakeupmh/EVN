@@ -14,7 +14,9 @@ const routes = [
     path: "/create",
     name: "Create",
     component: () =>
-      import(/* webpackChunkName: "about" */ "@/components/CharacterCreator.vue")
+      import(
+        /* webpackChunkName: "about" */ "@/components/CharacterCreator.vue"
+      )
   }
 ];
 
