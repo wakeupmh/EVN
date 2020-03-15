@@ -33,6 +33,18 @@ const routes = [
     name: "Stagger",
     component: () =>
       import(/* webpackChunkName: "Stagger" */ "@/views/Stagger.vue")
+  },
+  {
+    path: "/state",
+    name: "State",
+    component: () =>
+      import(/* webpackChunkName: "State" */ "@/views/State.vue")
+  },
+  {
+    path: "/master",
+    name: "Master",
+    component: () =>
+      import(/* webpackChunkName: "State" */ "@/views/Master.vue")
   }
 ];
 
