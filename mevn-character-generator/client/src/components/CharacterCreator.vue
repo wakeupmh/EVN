@@ -13,6 +13,7 @@
         @selected="handleClick"
       />
     </transition-group>
+
     <br />
     <div class="container">
       <button class="card" @click="postCharacter">
@@ -34,7 +35,8 @@ const Loader = () => import("./Loader.vue");
 export default {
   name: "CharacterCreator",
   components: {
-    Card, Loader
+    Card,
+    Loader
   },
   data() {
     return {
