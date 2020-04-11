@@ -4,7 +4,7 @@
   "description": "A simple file input with image preview for vue",
   "main": "ImageInput.vue",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -24,8 +24,36 @@
   ],
   "author": "devopmh",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
+    "@babel/preset-env": "^7.9.5",
     "@vue/test-utils": "^1.0.0-beta.33",
-    "jest": "^25.3.0"
+    "jest": "^25.3.0",
+    "jest-serializer-vue": "^2.0.2",
+    "vue-jest": "^3.0.5"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "vue"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/node_modules/$1"
+    },
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+    },
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/jest-serializer-vue"
+    ]
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "@babel/preset-env"
+        ]
+      }
+    }
   }
 }
