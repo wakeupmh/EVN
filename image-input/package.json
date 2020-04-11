@@ -1,0 +1,31 @@
+{
+  "name": "simple-vue-image-input",
+  "version": "1.0.0",
+  "description": "A simple file input with image preview for vue",
+  "main": "ImageInput.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "wakeupmh"
+  },
+  "keywords": [
+    "image-input",
+    "image",
+    "input",
+    "vue",
+    "image",
+    "input",
+    "vue",
+    "img",
+    "input",
+    "preview"
+  ],
+  "author": "devopmh",
+  "license": "ISC",
+  "dependencies": {
+    "@vue/test-utils": "^1.0.0-beta.33",
+    "jest": "^25.3.0"
+  }
+}
