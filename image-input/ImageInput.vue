@@ -6,7 +6,7 @@
         'background-image': `url(${imageData})`,
         'width': `${width}px`,
         'height': `${height}px`,
-        'border-radius': `${borderRadius}px`
+        'border-radius': `${radius}px`
       }"
       @click="chooseImage"
     >
@@ -15,7 +15,7 @@
         class="placeholder"
         :style="{ 
           'font-size':`${fontSize}` ,
-          'border-radius': `${borderRadius}px`
+          'border-radius': `${radius}px`
         }"
       >
         {{ customStrings.placeholder }}
@@ -59,9 +59,9 @@ export default {
       type: [String, Number],
       default: Number.MAX_SAFE_INTEGER
     },
-    borderRadius: {
+    radius: {
       type: Number,
-      default: 6
+      default: 0
     }
   },
   methods: {
